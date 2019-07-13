@@ -13,12 +13,14 @@ public class TestConnect : MonoBehaviourPunCallbacks
 
    public override void OnConnectedToMaster()
    {
+      base.OnConnectedToMaster();
       print("Connected to server : )");
       print(PhotonNetwork.LocalPlayer.NickName);
    }
 
    public override void OnDisconnected(DisconnectCause cause)
    {
+      base.OnDisconnected(cause);
       print("Disconnected from server for reason " + cause.ToString());
    }
 }

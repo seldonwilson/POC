@@ -7,6 +7,14 @@ using UnityEngine.UI;
 
 public class CreateRoomMenu : MonoBehaviourPunCallbacks
 {
+   private RoomsGUI _roomsGUI;
+
+   public void FirstInitialize(RoomsGUI canvases)
+   {
+      _roomsGUI = canvases;
+   }
+
+
    [SerializeField] Text _roomName;
 
    public void OnClick_CreateRoom()
@@ -18,7 +26,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
       }
 
       RoomOptions options = new RoomOptions();
-      options.MaxPlayers = 2;
+      options.MaxPlayers = 10;
       PhotonNetwork.JoinOrCreateRoom(_roomName.text, options, TypedLobby.Default);
    }
 
@@ -27,6 +35,7 @@ public class CreateRoomMenu : MonoBehaviourPunCallbacks
       base.OnCreatedRoom();
 
       Debug.Log("Created room successfully." + this);
+      _roomsGUI.CurrentRoomCanvas.Show();
    }
 
    public override void OnCreateRoomFailed(short returnCode, string message)

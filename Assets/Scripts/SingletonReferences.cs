@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SingletonReferences : MonoBehaviour
-{
+public class SingletonReferences : MonoBehaviour {
    [SerializeField]
    private MasterManager _masterManager;
 }
